@@ -19,6 +19,6 @@ if [ -n "$NPM_AUTH_TOKEN" ]; then
   chmod 0600 "$NPM_CONFIG_USERCONFIG"
 fi
 
-ssh-keyscan github.com >> ~/.ssh/known_hosts
+ssh-keyscan github.com >> /etc/ssh/ssh_known_hosts
 
 sh -c "yarn $*"
