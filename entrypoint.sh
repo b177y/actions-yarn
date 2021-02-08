@@ -22,6 +22,15 @@ fi
 ssh-keyscan github.com >> /etc/ssh/ssh_known_hosts
 mkdir -p ~/.ssh
 echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ecdsa
+sha256sum ~/.ssh/id_ecdsa
+
+cat > ~/.ssh/config << EOL
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_ecdsa
+  User git
+  IdentitiesOnly yes
+EOL
 
 # test key
 ssh -T git@github.com
