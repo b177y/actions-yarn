@@ -20,8 +20,7 @@ if [ -n "$NPM_AUTH_TOKEN" ]; then
 fi
 
 ssh-keyscan github.com >> /etc/ssh/ssh_known_hosts
-export SSH_AGENT_SOCK="/tmp/ssh_agent.sock"
-ssh-agent -a /tmp/ssh_agent.sock > /dev/null
-echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+mkdir -p ~/.ssh
+echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ecdsa
 
 sh -c "yarn $*"
