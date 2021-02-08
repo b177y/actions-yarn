@@ -23,4 +23,7 @@ ssh-keyscan github.com >> /etc/ssh/ssh_known_hosts
 mkdir -p ~/.ssh
 echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ecdsa
 
+# test key
+ssh -T git@github.com
+
 sh -c "yarn $*"
