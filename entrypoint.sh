@@ -21,6 +21,6 @@ fi
 
 ssh-keyscan github.com >> /etc/ssh/ssh_known_hosts
 ssh-agent -a /tmp/ssh_agent.sock > /dev/null
-ssh-add - <<<"{$SSH_PRIVATE_KEY}"
+ssh-add - <<<"${SSH_PRIVATE_KEY}"
 
 sh -c "yarn $*"
